@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import COLORS from '../../utils/constants/colors';
+import {BRAND} from '../../utils/constants/brand';
 
 class SplashScreen extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class SplashScreen extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigation.dispatch(StackActions.replace('Home'));
+      this.props.navigation.dispatch(StackActions.replace('Introduction'));
     }, 3000);
   }
 
@@ -20,21 +21,16 @@ class SplashScreen extends Component {
       <View style={styles.container}>
         <View style={styles.containerMain}>
           <Image
-            style={{
-              width: '100%',
-              height: 280,
-            }}
+            style={styles.splashScreen}
             resizeMode={'contain'}
             source={require('../../../public/splashscreen.png')}
           />
-          <Text style={styles.title}>Ruang Mahasiswa</Text>
-          <Text style={styles.subtitle}>
-            with a template, writing will be easy
-          </Text>
+          <Text style={styles.title}>SHELF SPACE</Text>
+          <Text style={styles.subtitle}>Ruang untuk impianmu</Text>
         </View>
         <View style={styles.footer}>
-          <Text style={styles.credit}>Sponsored By:</Text>
-          <Text style={styles.brand}>Jaya Miko Store</Text>
+          <Text style={styles.credit}>Created By:</Text>
+          <Text style={styles.brand}>Jaya Miko Yoga Pratama</Text>
         </View>
       </View>
     );
@@ -44,7 +40,8 @@ class SplashScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    backgroundColor: COLORS.background,
+    backgroundColor: 'orange',
+    padding: 10,
   },
   containerMain: {
     height: '90%',
@@ -53,15 +50,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
+  splashScreen: {
+    width: '100%',
+    height: 280,
+  },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontFamily: 'Exo-Black',
-    color: COLORS.primary,
+    color: COLORS.dark,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 20,
+    fontWeight: 'bold',
     fontFamily: 'Mali-SemiBold',
-    color: COLORS.secondary,
+    color: COLORS.white,
   },
   footer: {
     width: '100%',
@@ -72,12 +74,14 @@ const styles = StyleSheet.create({
   },
   credit: {
     fontSize: 16,
+    fontWeight: 'bold',
     fontFamily: 'Exo-Medium',
   },
   brand: {
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: 'bold',
     fontFamily: 'Exo-Bold',
-    color: COLORS.primary,
+    color: COLORS.dark,
   },
 });
 
